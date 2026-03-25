@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Emre Ergin — Strategic Product Consultant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:   #0a0a08;
+  --white:   #f8f6f0;
+  --green:   #1c3d2e;
+  --green-l: #2e6349;
+  --green-t: rgba(28,61,46,0.06);
+  --ink:     #1a1a16;
+  --muted:   #7a7870;
+  --line:    #e2ddd4;
+  --sage:    #5a9e78;
+  --mono: 'IBM Plex Mono', monospace;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+.label {
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--muted);
+  display: block; margin-bottom: 20px;
+}
+.rule { width: 32px; height: 1px; background: var(--green); margin: 28px 0; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 56px;
+  background: rgba(248,246,240,0.9);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-brand { display: flex; flex-direction: column; gap: 2px; text-decoration: none; }
+.nav-brand-name { font-family: var(--serif); font-size: 14px; font-weight: 700; color: var(--ink); }
+.nav-brand-role { font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+.nav-links a { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--green); }
+.nav-cta { padding: 10px 20px !important; border: 1px solid var(--green) !important; color: var(--green) !important; transition: all 0.2s !important; }
+.nav-cta:hover { background: var(--green) !important; color: var(--white) !important; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh; background: var(--black);
+  display: grid; grid-template-columns: 1fr 1fr;
+  position: relative; overflow: hidden; padding-top: 80px;
+}
+.hero-left {
+  padding: 80px 56px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  position: relative; z-index: 2;
+  border-right: 1px solid rgba(248,246,240,0.06);
+}
+.hero-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(248,246,240,0.35); margin-bottom: 40px; animation: fadeUp 1s ease both; }
+.hero-headline { font-family: var(--serif); font-size: clamp(56px, 6.5vw, 100px); font-weight: 900; line-height: 0.88; color: var(--white); letter-spacing: -0.03em; animation: fadeUp 1s 0.1s ease both; }
+.hero-headline em { font-style: italic; color: rgba(248,246,240,0.28); }
+.hero-num { position: absolute; bottom: 56px; left: 56px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; color: rgba(248,246,240,0.18); text-transform: uppercase; animation: fadeUp 1s 0.5s ease both; }
+.hero-right {
+  padding: 80px 56px 80px 64px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  position: relative; z-index: 2;
+}
+.hero-corner { position: absolute; top: 110px; right: 56px; width: 240px; height: 240px; border: 1px solid rgba(248,246,240,0.04); pointer-events: none; }
+.hero-corner::before { content: ''; position: absolute; inset: 20px; border: 1px solid rgba(248,246,240,0.04); }
+.hero-tag { display: inline-block; width: fit-content; margin-bottom: 32px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage); border: 1px solid rgba(90,158,120,0.3); padding: 7px 14px; animation: fadeUp 1s 0.2s ease both; }
+.hero-sub { font-size: 17px; line-height: 1.75; color: rgba(248,246,240,0.55); max-width: 420px; animation: fadeUp 1s 0.3s ease both; margin-bottom: 48px; }
+.hero-ctas { display: flex; flex-direction: column; gap: 12px; animation: fadeUp 1s 0.4s ease both; }
+.btn-primary { display: inline-block; text-decoration: none; font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; padding: 16px 32px; width: fit-content; background: var(--sage); color: var(--black); transition: all 0.2s; }
+.btn-primary:hover { background: #6db88e; }
+.btn-ghost { display: inline-block; text-decoration: none; font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; padding: 16px 32px; width: fit-content; border: 1px solid rgba(248,246,240,0.14); color: rgba(248,246,240,0.45); transition: all 0.2s; }
+.btn-ghost:hover { border-color: rgba(248,246,240,0.35); color: var(--white); }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ── ABOUT ── */
+.about { display: grid; grid-template-columns: 5fr 7fr; border-bottom: 1px solid var(--line); }
+.about-left { padding: 96px 56px; border-right: 1px solid var(--line); position: sticky; top: 80px; align-self: start; }
+.about-headline { font-family: var(--serif); font-size: clamp(30px, 3.2vw, 48px); font-weight: 700; line-height: 1.1; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 28px; }
+.about-headline em { font-style: italic; color: var(--muted); }
+.contact-links { display: flex; flex-direction: column; gap: 10px; margin-top: 32px; }
+.contact-link { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 10px; }
+.contact-link::before { content: '↗'; color: var(--green); font-size: 11px; }
+.contact-link:hover { color: var(--green); }
+.about-right { padding: 96px 64px; }
+.about-right p { font-size: 17px; line-height: 1.8; color: #3d3b34; margin-bottom: 24px; }
+.about-right p:first-child { font-size: 20px; color: var(--ink); font-family: var(--serif); font-weight: 400; line-height: 1.6; }
+.about-right p strong { color: var(--ink); font-weight: 500; }
+
+/* ── SERVICES ── */
+.services { background: var(--green); padding: 96px 56px; }
+.services-headline { font-family: var(--serif); font-size: clamp(30px, 3.2vw, 46px); font-weight: 700; color: var(--white); letter-spacing: -0.02em; margin-bottom: 64px; max-width: 480px; }
+.services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; }
+.service-card { background: var(--green); padding: 48px 40px; transition: background 0.25s; border: 1px solid rgba(248,246,240,0.07); }
+.service-card:hover { background: var(--green-l); }
+.service-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; color: rgba(248,246,240,0.25); margin-bottom: 20px; }
+.service-title { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 16px; line-height: 1.2; }
+.service-body { font-size: 14px; line-height: 1.75; color: rgba(248,246,240,0.55); }
+
+/* ── ENGAGEMENTS ── */
+.engagements { background: var(--white); }
+.eng-header { padding: 96px 56px 48px; border-bottom: 1px solid var(--line); }
+.eng-headline { font-family: var(--serif); font-size: clamp(30px, 3.2vw, 46px); font-weight: 700; letter-spacing: -0.02em; color: var(--ink); max-width: 460px; }
+.eng-item { display: grid; grid-template-columns: 220px 1fr 60px; align-items: start; padding: 40px 56px; border-bottom: 1px solid var(--line); transition: background 0.2s; gap: 40px; }
+.eng-item:hover { background: var(--green-t); }
+.eng-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.eng-org { font-family: var(--serif); font-size: 17px; font-weight: 700; color: var(--ink); }
+.eng-type { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sage); margin-bottom: 10px; }
+.eng-desc { font-size: 15px; color: #4a4840; line-height: 1.7; }
+.eng-desc strong { color: var(--ink); font-weight: 500; }
+.eng-arrow { font-size: 16px; color: var(--line); padding-top: 4px; text-align: right; transition: color 0.2s; }
+.eng-item:hover .eng-arrow { color: var(--green); }
+
+/* ── CAPABILITIES ── */
+.capabilities { background: var(--black); padding: 96px 56px; display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; }
+.cap-headline { font-family: var(--serif); font-size: clamp(28px, 3vw, 42px); font-weight: 700; color: var(--white); letter-spacing: -0.02em; line-height: 1.15; }
+.cap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.cap-block { background: rgba(248,246,240,0.03); border: 1px solid rgba(248,246,240,0.06); padding: 32px 28px; transition: background 0.2s; }
+.cap-block:hover { background: rgba(248,246,240,0.05); }
+.cap-area { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); margin-bottom: 16px; }
+.cap-items { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.cap-items li { font-size: 13px; color: rgba(248,246,240,0.42); padding-left: 14px; position: relative; }
+.cap-items li::before { content: '–'; position: absolute; left: 0; color: rgba(248,246,240,0.2); }
+
+/* ── PHILOSOPHY ── */
+.philosophy { padding: 96px 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 96px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.phil-quote { font-family: var(--serif); font-size: clamp(22px, 2.5vw, 36px); font-weight: 400; font-style: italic; line-height: 1.45; color: var(--ink); letter-spacing: -0.01em; }
+.phil-body p { font-size: 16px; line-height: 1.8; color: #4a4840; margin-bottom: 20px; }
+
+/* ── FOOTER ── */
+footer { background: var(--black); padding: 56px; }
+.footer-top { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 40px; border-bottom: 1px solid rgba(248,246,240,0.08); margin-bottom: 40px; gap: 40px; flex-wrap: wrap; }
+.footer-brand-name { font-family: var(--serif); font-weight: 700; font-size: 20px; color: var(--white); margin-bottom: 6px; }
+.footer-brand-sub { font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(248,246,240,0.28); }
+.footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+.footer-links a { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(248,246,240,0.38); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--sage); }
+.impressum { font-family: var(--mono); font-size: 10px; letter-spacing: 0.04em; color: rgba(248,246,240,0.22); line-height: 1.9; }
+.impressum strong { color: rgba(248,246,240,0.38); display: block; margin-bottom: 8px; letter-spacing: 0.18em; font-size: 9px; text-transform: uppercase; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 18px 24px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 64px 24px 40px; border-right: none; border-bottom: 1px solid rgba(248,246,240,0.06); }
+  .hero-right { padding: 40px 24px 64px; }
+  .hero-corner, .hero-num { display: none; }
+  .about { grid-template-columns: 1fr; }
+  .about-left { padding: 64px 24px 40px; border-right: none; border-bottom: 1px solid var(--line); position: static; }
+  .about-right { padding: 40px 24px 64px; }
+  .services { padding: 64px 24px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .eng-header { padding: 64px 24px 40px; }
+  .eng-item { grid-template-columns: 1fr; padding: 32px 24px; gap: 16px; }
+  .eng-arrow { display: none; }
+  .capabilities { grid-template-columns: 1fr; padding: 64px 24px; gap: 40px; }
+  .cap-grid { grid-template-columns: 1fr; }
+  .philosophy { grid-template-columns: 1fr; gap: 40px; padding: 64px 24px; }
+  footer { padding: 40px 24px; }
+  .footer-top { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">
+    <span class="nav-brand-name">Emre Ergin</span>
+    <span class="nav-brand-role">Strategic Product Consultant</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#engagements">Engagements</a></li>
+    <li><a href="#capabilities">Capabilities</a></li>
+    <li><a href="mailto:hi@emreerg.in" class="nav-cta">Book a Consultation</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Strategic Product Consultancy · Munich</p>
+    <h1 class="hero-headline">Product<br /><em>Systems</em></h1>
+    <p class="hero-num">EST. 2015 · MUNICH, DE</p>
+  </div>
+  <div class="hero-right">
+    <div class="hero-corner"></div>
+    <span class="hero-tag">Available for engagements</span>
+    <p class="hero-sub">Specialized advisory for high-growth SaaS and marketplaces. I help businesses scale through fractional leadership, strategic roadmapping, and data-driven discovery.</p>
+    <div class="hero-ctas">
+      <a href="mailto:hi@emreerg.in" class="btn-primary">Book a Consultation</a>
+      <a href="https://www.linkedin.com/in/eergin/" target="_blank" class="btn-ghost">Professional Network</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-left">
+    <span class="label">About</span>
+    <h2 class="about-headline">Product by trade,<br /><em>curious</em><br />by nature.</h2>
+    <div class="rule"></div>
+    <div class="contact-links">
+      <a href="mailto:hi@emreerg.in" class="contact-link">hi@emreerg.in</a>
+      <a href="https://www.linkedin.com/in/eergin/" target="_blank" class="contact-link">LinkedIn Profile</a>
+    </div>
+  </div>
+  <div class="about-right">
+    <p>I am a Strategic Product Consultant driven by outcomes. My work is centered on one goal: moving the needle.</p>
+    <p>With a background spanning API services, marketplaces, e-commerce, and conversational AI, I bridge the gap between complex technical stacks and commercial success. My experience is rooted in the high-velocity environment of pre-Series B startups, complemented by high-impact advisory roles for global household names.</p>
+    <p>As a former founder who bootstrapped a conversational commerce startup to a <strong>6-figure turnover</strong>, I bring a unique owner's perspective to every engagement. I don't just suggest features; I build the systems and strategies that deliver measurable unit economics and sustainable growth.</p>
+    <p>Based in Dachau/Munich, I partner with international leadership teams to solve their most critical product challenges.</p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <span class="label" style="color:rgba(248,246,240,0.35)">Service Offerings</span>
+  <h2 class="services-headline">Specialized work,<br />structured for impact.</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-title">Fractional Product Leadership</div>
+      <p class="service-body">High-level strategic advisory for executive teams. I provide the leadership necessary to scale product-engineering organizations, optimize P&amp;L, and refine unit economics — without the overhead of a full-time hire.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-title">System Design &amp; Roadmapping</div>
+      <p class="service-body">Developing 0-to-1 product strategies and translating business objectives into actionable, high-velocity roadmaps that align stakeholders and engineering squads toward the right outcomes.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-title">Advanced Product Discovery</div>
+      <p class="service-body">Utilizing deep user research and data modeling (SQL/Python) to identify market opportunities, validate product-market fit, and run high-impact A/B testing programs that compound over time.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-title">Venture Design &amp; Growth Advisory</div>
+      <p class="service-body">Leveraging founder-level experience to guide startups through critical pivots, fundraising preparation, and go-to-market execution. Built from lived experience, not theory.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ENGAGEMENTS -->
+<section class="engagements" id="engagements">
+  <div class="eng-header">
+    <span class="label">Selected History</span>
+    <h2 class="eng-headline">Strategic engagements that moved the needle.</h2>
+  </div>
+
+  <div class="eng-item">
+    <div class="eng-meta">
+      <div class="eng-period">2023 — Present</div>
+      <div class="eng-org">Insense</div>
+    </div>
+    <div class="eng-content">
+      <div class="eng-type">Fractional Head of Product</div>
+      <p class="eng-desc">Directing product strategy for a SaaS-enabled creator marketplace. Leading the transformation of product-engineering processes and overseeing the roadmap to drive <strong>retention and revenue</strong>.</p>
+    </div>
+    <div class="eng-arrow">→</div>
+  </div>
+
+  <div class="eng-item">
+    <div class="eng-meta">
+      <div class="eng-period">2020 — 2022</div>
+      <div class="eng-org">Pizza Hut Digital Ventures</div>
+    </div>
+    <div class="eng-content">
+      <div class="eng-type">Senior Product Consultancy</div>
+      <p class="eng-desc">Strategic advisory for global e-commerce renovation. Optimized conversion paths across <strong>14 international markets</strong>, contributing to 9-figure annual sales and <strong>£10m in incremental growth</strong>.</p>
+    </div>
+    <div class="eng-arrow">→</div>
+  </div>
+
+  <div class="eng-item">
+    <div class="eng-meta">
+      <div class="eng-period">2019</div>
+      <div class="eng-org">Fat Llama</div>
+    </div>
+    <div class="eng-content">
+      <div class="eng-type">Strategic Product Engagement</div>
+      <p class="eng-desc">Consulting on marketplace liquidity for a YC-backed platform. Delivered a mobile-first initiative that <strong>doubled MAU</strong> and increased search-to-view conversion from <strong>45% to 70%</strong>.</p>
+    </div>
+    <div class="eng-arrow">→</div>
+  </div>
+
+  <div class="eng-item">
+    <div class="eng-meta">
+      <div class="eng-period">2017 — 2018</div>
+      <div class="eng-org">Striing</div>
+    </div>
+    <div class="eng-content">
+      <div class="eng-type">Co-founder &amp; Product Lead</div>
+      <p class="eng-desc">Led the design and commercialization of a conversational commerce platform. Bootstrapped from PoC to <strong>6-figure turnover</strong> with a major nationwide restaurant group.</p>
+    </div>
+    <div class="eng-arrow">→</div>
+  </div>
+
+  <div class="eng-item">
+    <div class="eng-meta">
+      <div class="eng-period">2015 — 2017</div>
+      <div class="eng-org">Flyt</div>
+    </div>
+    <div class="eng-content">
+      <div class="eng-type">Technical Programme Management</div>
+      <p class="eng-desc">Managed complex integrations for high-profile accounts including Just Eat and KFC. Led the <strong>end-to-end rebuild</strong> of Nando's e-commerce platform — acquired by Just Eat Takeaway.com.</p>
+    </div>
+    <div class="eng-arrow">→</div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section class="capabilities" id="capabilities">
+  <div class="cap-left">
+    <span class="label" style="color:rgba(248,246,240,0.3)">Toolkit</span>
+    <h2 class="cap-headline">How I work.</h2>
+  </div>
+  <div class="cap-grid">
+    <div class="cap-block">
+      <div class="cap-area">Strategy</div>
+      <ul class="cap-items">
+        <li>Market definition &amp; competitive analysis</li>
+        <li>Forecasting &amp; scenario modeling</li>
+        <li>Decision facilitation</li>
+        <li>Unit economics &amp; P&amp;L</li>
+      </ul>
+    </div>
+    <div class="cap-block">
+      <div class="cap-area">Research</div>
+      <ul class="cap-items">
+        <li>User interviews &amp; synthesis</li>
+        <li>SQL-based data analysis</li>
+        <li>Problem / opportunity deep dives</li>
+        <li>A/B test design &amp; evaluation</li>
+      </ul>
+    </div>
+    <div class="cap-block">
+      <div class="cap-area">Execution</div>
+      <ul class="cap-items">
+        <li>MVP definition &amp; roadmapping</li>
+        <li>Agile squad management</li>
+        <li>API documentation</li>
+        <li>Multi-timezone delivery</li>
+      </ul>
+    </div>
+    <div class="cap-block">
+      <div class="cap-area">Design</div>
+      <ul class="cap-items">
+        <li>Interaction mapping</li>
+        <li>System flow diagrams</li>
+        <li>High-fidelity wireframing</li>
+        <li>Figma · Whimsical · Miro</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy">
+  <div class="phil-quote">
+    "I find meaning in discovering and appreciating the complexity of the world — whether through history, philosophy, or building elegant product systems."
+  </div>
+  <div class="phil-body">
+    <span class="label">Philosophy</span>
+    <p>Curiosity is my primary driver. I aim to leave every project, community, and institution in a better state than I found it.</p>
+    <p>When I'm not at my desk, you'll find me on the football pitch, in a boxing ring, or kitesurfing when the wind allows.</p>
+    <div style="margin-top:32px;">
+      <a href="https://www.goodreads.com/user/show/64318694-emre-ergin" target="_blank" class="contact-link">What I'm reading</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER / IMPRESSUM -->
+<footer id="contact">
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">Emre Ergin</div>
+      <div class="footer-brand-sub">Strategic Product Consultant · Dachau / Munich</div>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:hi@emreerg.in">hi@emreerg.in</a>
+      <a href="https://www.linkedin.com/in/eergin/" target="_blank">LinkedIn</a>
+      <a href="https://www.goodreads.com/user/show/64318694-emre-ergin" target="_blank">Goodreads</a>
+    </div>
+  </div>
+  <div class="impressum" id="impressum">
+    <strong>Impressum</strong>
+    Angaben gemäß § 5 TMG: Emre Ergin · Christoph-Probst-Str 5, 85221 Dachau<br />
+    E-Mail: hi@emreerg.in · USt-IdNr: DE459705685<br />
+    Berufsbezeichnung: Freiberufler (Strategic Product Consultant)
+  </div>
+</footer>
+
+</body>
+</html>
